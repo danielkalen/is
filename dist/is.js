@@ -39,6 +39,12 @@ Checks = (function() {
 
   Checks.prototype.load = function(set) {
     var key, value;
+    if (availSets.natives.string(set)) {
+      set = availSets[set];
+    }
+    if (!availSets.natives.objectPlain(set)) {
+      return;
+    }
     for (key in set) {
       value = set[key];
       this[key] = value;

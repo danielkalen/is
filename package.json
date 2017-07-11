@@ -1,7 +1,7 @@
 {
   "name": "@danielkalen/is",
   "version": "1.0.0",
-  "description": "type check utility",
+  "description": "Collection of common bool functions for checking the type of a given value",
   "main": "dist/is.js",
   "browser": "src/index.coffee",
   "browserify": {

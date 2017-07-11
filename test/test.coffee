@@ -32,7 +32,6 @@ test "a copy of the main object can be created using .create", (t)->
 
 test "additional checks can be loaded by giving the name as an arg to .create", (t)->
 	copy = IS.create('natives', 'dom')
-	t.ok typeof IS.defined is 'function'
 	t.ok typeof copy.domDoc is 'function'
 	t.ok typeof copy.domEl is 'function'
 	t.ok typeof copy.domText is 'function'
@@ -62,6 +61,9 @@ test "custom checks can be loaded via IS.load", (t)->
 	t.notOk copy.whatever('something')
 
 	t.ok typeof IS.whatever is 'undefined'
+
+	copy.load('dom')
+	t.ok typeof copy.domEl is 'function'
 	t.end()
 
 

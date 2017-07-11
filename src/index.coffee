@@ -16,6 +16,7 @@ class Checks
 
 
 	load: (set)->
+		set = availSets[set] if availSets.natives.string(set)
 		return if not availSets.natives.objectPlain(set)
 		
 		for key,value of set
