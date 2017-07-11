@@ -1,10 +1,20 @@
 {
   "name": "@danielkalen/is",
   "version": "1.0.0",
-  "description": "N/A",
-  "main": "src/is.coffee",
+  "description": "type check utility",
+  "main": "dist/is.js",
+  "browser": "src/index.coffee",
+  "browserify": {
+    "transform": [
+      "simplyimport/compat"
+    ]
+  },
   "scripts": {
-    "test": "N/A"
+    "postversion": "npm run build && git commit -a -m '[Build]'",
+    "prepublishOnly": "npm run test -s",
+    "postpublish": "git push",
+    "test": "tape -r coffee-register test/test.coffee",
+    "build": "simplyimport bundle --umd IS src/index.coffee > dist/is.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +27,9 @@
   },
   "homepage": "https://github.com/danielkalen/is#readme",
   "devDependencies": {
-    "coffee-script": "^1.12.3"
-  }
+    "coffee-register": "^0.1.0",
+    "simplyimport": "^4.0.0-s4",
+    "tape": "^4.7.0"
+  },
+  "dependencies": {}
 }
