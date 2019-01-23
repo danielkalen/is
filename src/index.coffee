@@ -1,6 +1,6 @@
-availSets = 
-	natives: import './natives'
-	dom: import './dom'
+import * as natives from './natives'
+import * as dom from './dom'
+AVAIL_SETS = {natives, dom}
 
 class Checks
 	create: ()->
@@ -12,17 +12,18 @@ class Checks
 		sets ?= ['natives']
 		
 		for set in sets
-			@load(availSets[set]) if availSets[set]
+			@load(AVAIL_SETS[set]) if AVAIL_SETS[set]
 
 
 	load: (set)->
-		set = availSets[set] if availSets.natives.string(set)
-		return if not availSets.natives.objectPlain(set)
+		set = AVAIL_SETS[set] if AVAIL_SETS.natives.string(set)
+		return if not AVAIL_SETS.natives.objectPlain(set)
 		
 		for key,value of set
+			key = 'function' if key is 'function_'
 			@[key] = value
 		
 		return
 	
 	
-module.exports = Checks::create()
+export default Checks::create()

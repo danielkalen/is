@@ -1,18 +1,17 @@
-module.exports = exports =
-	defined: (subject)-> subject isnt undefined
-	
-	array: (subject)-> subject instanceof Array
-	
-	object: (subject)-> typeof subject is 'object' and subject # 2nd check is to test against 'null' values
+export defined = (subject)-> subject isnt undefined
 
-	objectPlain: (subject)-> exports.object(subject) and Object::toString.call(subject) is '[object Object]' and subject.constructor is Object
+export array = (subject)-> subject instanceof Array
 
-	string: (subject)-> typeof subject is 'string'
-	
-	number: (subject)-> typeof subject is 'number' and not isNaN(subject)
+export object = (subject)-> typeof subject is 'object' and subject # 2nd check is to test against 'null' values
 
-	numberLoose: (subject)-> exports.number(subject) or exports.string(subject) and exports.number(Number subject)
-	
-	function: (subject)-> typeof subject is 'function'
+export objectPlain = (subject)-> object(subject) and Object::toString.call(subject) is '[object Object]' and subject.constructor is Object
 
-	iterable: (subject)-> exports.object(subject) and exports.number(subject.length)
+export string = (subject)-> typeof subject is 'string'
+
+export number = (subject)-> typeof subject is 'number' and not isNaN(subject)
+
+export numberLoose = (subject)-> number(subject) or string(subject) and number(Number subject)
+
+export iterable = (subject)-> object(subject) and number(subject.length)
+
+export function_ = (subject)-> typeof subject is 'function'

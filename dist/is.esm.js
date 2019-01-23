@@ -1,4 +1,4 @@
-(function(g,f){typeof exports==='object'&&typeof module!=='undefined'?module.exports=f():typeof define==='function'&&define.amd?define(f):(g=g||self,g['@danielkalen/is']=f());}(this,function(){'use strict';function _typeof(obj) {
+function _typeof(obj) {
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
     _typeof = function (obj) {
       return typeof obj;
@@ -149,4 +149,4 @@ function () {
   return Checks;
 }();
 
-var index = Checks.prototype.create();return index;}));
+var index = Checks.prototype.create();export default index;

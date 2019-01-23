@@ -1,16 +1,15 @@
-module.exports = exports = 
-	domDoc: (subject)-> subject and subject.nodeType is 9
+export domDoc =(subject)-> subject and subject.nodeType is 9
 
-	domEl: (subject)-> subject and subject.nodeType is 1
+export domEl =(subject)-> subject and subject.nodeType is 1
 
-	domText: (subject)-> subject and subject.nodeType is 3
+export domText =(subject)-> subject and subject.nodeType is 3
 
-	domNode: (subject)-> exports.domEl(subject) or exports.domText(subject)
+export domNode =(subject)-> domEl(subject) or domText(subject)
 
-	domTextarea: (subject)-> subject and subject.nodeName is 'TEXTAREA'
+export domTextarea =(subject)-> subject and subject.nodeName is 'TEXTAREA'
 	
-	domInput: (subject)-> subject and subject.nodeName is 'INPUT'
+export domInput =(subject)-> subject and subject.nodeName is 'INPUT'
 	
-	domSelect: (subject)-> subject and subject.nodeName is 'SELECT'
+export domSelect =(subject)-> subject and subject.nodeName is 'SELECT'
 	
-	domField: (subject)-> exports.domInput(subject) or exports.domTextarea(subject) or exports.domSelect(subject)
+export domField =(subject)-> domInput(subject) or domTextarea(subject) or domSelect(subject)
